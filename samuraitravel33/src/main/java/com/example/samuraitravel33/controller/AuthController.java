@@ -60,8 +60,8 @@ public class AuthController {
             return "auth/signup";
         }
         
-        userService.create(signupForm);
-        redirectAttributes.addFlashAttribute("successMessage", "会員登録が完了しました。");
+//        userService.create(signupForm);
+//        redirectAttributes.addFlashAttribute("successMessage", "会員登録が完了しました。");
         User createdUser = userService.create(signupForm);
         String requestUrl = new String(httpServletRequest.getRequestURL());
         signupEventPublisher.publishSignupEvent(createdUser, requestUrl);
