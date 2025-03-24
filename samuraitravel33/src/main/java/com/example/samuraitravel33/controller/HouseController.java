@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.example.samuraitravel33.entity.House;
+import com.example.samuraitravel33.form.ReservationInputForm;
 import com.example.samuraitravel33.repository.HouseRepository;
 
 @Controller
@@ -72,7 +73,8 @@ public class HouseController {
      public String show(@PathVariable(name = "id") Integer id, Model model) {
          House house = houseRepository.getReferenceById(id);
          
-         model.addAttribute("house", house);         
+         model.addAttribute("house", house);    
+         model.addAttribute("reservationInputForm", new ReservationInputForm());
          
          return "houses/show";
      }    
